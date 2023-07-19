@@ -312,18 +312,18 @@ useEffect(()=>{
                                 <Box className='content'>
 
                                     <Box className='row'>
-                                        <img src="https://banbanjara.com/assets/images/mission-img1.jpg" />
+                                        <img src="https://www.thespruce.com/thmb/2UqazxmwZj4edAq39EphfiDHStk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-165831199-56d751df3df78cfb37da972c.jpg" />
                                     </Box>
 
                                     <Box className='row'>
-                                        <img src="https://banbanjara.com/assets/images/mission-img3.jpg" />
+                                        <img src="https://www.ambius.com/dam/jcr:c377c122-e09a-4d1d-a750-481094c35dde/1200-image-banner-stock-woman-potting-plants-in-greenhouse-605764253.webp" />
                                     </Box>
 
                                     <Box className='row'>
-                                        <img src="https://banbanjara.com/assets/images/mission-img2.jpg" />
+                                        <img src="https://img.etimg.com/thumb/msid-100649932,width-650,height-488,imgsize-222262,,resizemode-75/gardening_istock.jpg" />
                                     </Box>
                                     <Box className='row'>
-                                        <img src="https://banbanjara.com/assets/images/mission-img4.jpg" />
+                                        <img src="https://www.thespruce.com/thmb/XoRg5ZDKDhX_XDIu618RYOLHH_s=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/vegetable-gardening-in-small-spaces-1403451-01-aa94b9199ba145079de2417b219c89b4.jpg" />
                                     </Box>
                                 </Box>
                             </Box>
