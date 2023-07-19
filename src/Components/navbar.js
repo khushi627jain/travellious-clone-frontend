@@ -48,10 +48,20 @@ export function NavbarCode({ nameOfUser }) {
     const [isOpenn, setIsOpen] = useState(false);
     const [phoneNumber, setPhoneNumber] = useState('');
     const [name, setName] = useState('');
+    const[userName,setUsername]=useState("")
+
+
+useEffect(()=>{
+
+    let nameOF=localStorage.getItem("name");
+   
+    setName(nameOF)
+   
+},[name])
 
     const handleLogin = (event) => {
         event.preventDefault();
-        dispatch({ type: "changeName", payload: name })
+       
         const formData = {
             email: email,
             password: password,
@@ -61,7 +71,7 @@ export function NavbarCode({ nameOfUser }) {
           }
           
         axios.post("https://travellious-clone.onrender.com/login",formData)
-        .then(res=>{console.log(res.data);
+        .then(res=>{
             if(res.data=="Email dosen't exist , Please sign up first"){
                 alert("Signup first, this email dosen't exist")
             }
@@ -69,19 +79,22 @@ export function NavbarCode({ nameOfUser }) {
             alert("Invalid Credentials")
             }
             else if(res.data.msg="Successfully login"){
-                console.log(res.data.token)
+                setName(res.data.obj.name)
+
                 localStorage.setItem("token",res.data.token);
+                localStorage.setItem("name",res.data.obj.name);
+                // dispatch({ type: "changeName", payload: name })
                 alert("Login Successful")
             
             }})
-            setEmail("");setPassword("");setPhoneNumber("");setName("")
+            setEmail("");setPassword("");setPhoneNumber("")
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         // dispatch({ type: "changeName", payload: name })
         const formData = {
-            name: name,
+            name: userName,
             email: email,
             password: password,
             phoneNumber: phoneNumber,
@@ -100,7 +113,7 @@ export function NavbarCode({ nameOfUser }) {
             })
             .catch(err=>console.log(err))
             setEmail("");setPassword("");setPhoneNumber("");
-            // setName("")
+             setName("")
     };
 
 
@@ -323,7 +336,7 @@ export function NavbarCode({ nameOfUser }) {
                         <li>
                             <Link onClick={onOpen} _hover={{ textDecorationColor: "white" }}><Text fontWeight={"500"}
                                 color={nameOfUser == "" ? "#dbdde5" : "#e2660f"}
-                                fontSize={["10px", "15px", "15px", "20px"]}>{nameOfUser == "" ? "Login" : nameOfUser}</Text></Link>
+                                fontSize={["10px", "15px", "15px", "20px"]}>{name == null||"" ? "Login" : name}</Text></Link>
                             <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
                                 <DrawerOverlay>
                                     <DrawerContent>
@@ -398,7 +411,7 @@ export function NavbarCode({ nameOfUser }) {
                                                     type="text"
                                                     name="name"
                                                     value={name}
-                                                    onChange={(e) => setName(e.target.value)}
+                                                    onChange={(e) => setUsername(e.target.value)}
                                                 />
                                             </FormControl>
 

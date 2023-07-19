@@ -10,9 +10,16 @@ import { nameReducer } from './Redux/reducer';
 function App() {
 
 
- const name=useSelector((store)=>{return store.nameReducer.name})
-    console.log(name)
-  
+
+
+const [name,setName]=useState("")
+
+         useEffect(()=>{
+
+          let nameOF=localStorage.getItem("name");
+          setName(nameOF)
+      },[name])
+
   return (
     <div className="App">
  <NavbarCode nameOfUser={name}/>

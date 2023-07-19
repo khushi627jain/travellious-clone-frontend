@@ -70,18 +70,18 @@ export function Experience(){
 </Flex>
 <Box bg="#9cacbe" p="10px" mt="30px"  display={["none","none","flex"]}>
 <Box display={"flex"} alignItems={"center"} >
-  <Image w="80%" h="50%" src="https://banbanjara.com/assets/images/customizable.svg"/>
+ 
   <Text ml="0px" fontWeight={"500"} fontSize={["8px","8px","10px","13px","15px"]}>100% customizable</Text>
 </Box>
 <div class="vertical-line"></div>
 <Box display={"flex"} alignItems={"center"}>
-  <Image src="https://banbanjara.com/assets/images/Instant-booking.png"/>
+  
   <Text ml="10px" fontWeight={"500"} fontSize={["8px","8px","10px","13px","15px"]}>Instant booking in real time</Text>
 </Box>
 <div class="vertical-line"></div>
 <Box display={"flex"} alignItems={"center"}>
-  <Image src="https://banbanjara.com/assets/images/travel-platform.png"/>
-  <Text ml="10px" fontWeight={"500"} fontSize={["8px","8px","10px","13px","15px"]}>One stop experiential travel platform</Text>
+ 
+  <Text  ml="10px" fontWeight={"500"} fontSize={["8px","8px","10px","13px","15px"]}>One stop experiential travel platform</Text>
 </Box>
 
 </Box>
