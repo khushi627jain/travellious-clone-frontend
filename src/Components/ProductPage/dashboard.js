@@ -108,10 +108,6 @@ axios.post("https://travellious-clone.onrender.com/trekking",obj,{ headers: { Au
     setIsModalOpenEdit(true);
   }
   
-
-
-
-
   function handleEdit(id){
     let token =localStorage.getItem("token")
    
@@ -148,7 +144,7 @@ axios.patch(`https://travellious-clone.onrender.com/trekking/${id}`,obj,{ header
 }
 
 function deleteProduct(id){
-  setShow(prev=>prev+911)
+
     axios.delete(`https://travellious-clone.onrender.com/trekking/delete/${id}`,{headers: { Authorization: `Bearer ${token}` }})
 setShow(prev=>prev+4513)
 }
