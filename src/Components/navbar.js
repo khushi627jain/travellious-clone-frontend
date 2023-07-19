@@ -299,18 +299,18 @@ export function NavbarCode({ nameOfUser }) {
                                 <Box className='content'>
 
                                     <Box className='row'>
-                                        <img src="https://banbanjara.com/assets/images/mission-img1.jpg" />
+                                        <img src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2020_09/3247646/200227-think-plantation-se-545p.jpg" />
                                     </Box>
 
                                     <Box className='row'>
-                                        <img src="https://banbanjara.com/assets/images/mission-img3.jpg" />
+                                        <img src="https://assets.editorial.aetnd.com/uploads/2009/10/how-slavery-became-the-economic-engine-of-the-souths-featured-photo.jpg?width=1920&height=960&crop=1920%3A960%2Csmart&quality=75" />
                                     </Box>
 
                                     <Box className='row'>
-                                        <img src="https://banbanjara.com/assets/images/mission-img2.jpg" />
+                                        <img src="https://ichef.bbci.co.uk/images/ic/1008xn/p07836bm.jpg" />
                                     </Box>
                                     <Box className='row'>
-                                        <img src="https://banbanjara.com/assets/images/mission-img4.jpg" />
+                                        <img src="https://www.worldhistory.org/img/r/p/1000x1200/14642.jpg.webp?v=1683580443" />
                                     </Box>
                                 </Box>
                             </Box>
