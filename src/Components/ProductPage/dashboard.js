@@ -55,6 +55,12 @@ else{
     // Store the form data in the desired state or perform other actions
     let token =localStorage.getItem("token")
     setShow(prev=>prev+911)
+
+    if(formData.accommodations==""||formData.name==""||formData.description==""||formData.imageUrl==""||
+    formData.price==0||formData.paymentMode==""||formData.activities==[]||formData.tags==[]){
+      alert("Please fill all the required fields")
+      return;
+    }
     let obj={
         accommodation:formData.accommodations,
         name:formData.name,
