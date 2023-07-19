@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function PlacesDashboard() {
   const [data, setData] = useState([]);
+  const[change,setChange]=useState("");
   const[show,setShow]=useState(1);
   const navigate=useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,7 +37,7 @@ else{
   navigate("/");
   
 }
-},[show])
+},[show.change])
 
   const handleInputChange = (e) =>
    {
@@ -53,7 +54,7 @@ else{
   const handleSubmit = () =>   {
     // Store the form data in the desired state or perform other actions
     let token =localStorage.getItem("token")
-    setShow(112)
+    setShow(prev=>prev+911)
     let obj={
         accommodation:formData.accommodations,
         name:formData.name,
@@ -81,11 +82,11 @@ axios.post("https://travellious-clone.onrender.com/trekking",obj,{ headers: { Au
     });
     // Close the modal
     setIsModalOpen(false);
-   setShow(9)
+   setShow(prev=>prev+9)
   };
 
   function editProduct(id) {
-    setShow(14);
+    setShow(prev=>prev+10);
     let token = localStorage.getItem("token");
   
     axios
@@ -143,13 +144,13 @@ axios.patch(`https://travellious-clone.onrender.com/trekking/${id}`,obj,{ header
     });
     // Close the modal
     setIsModalOpenEdit(false);
-    setShow(12)
+    setShow(prev=>prev+900)
 }
 
 function deleteProduct(id){
-  setShow(6)
+  setShow(prev=>prev+911)
     axios.delete(`https://travellious-clone.onrender.com/trekking/delete/${id}`,{headers: { Authorization: `Bearer ${token}` }})
-setShow(4513)
+setShow(prev=>prev+4513)
 }
 
   return (
