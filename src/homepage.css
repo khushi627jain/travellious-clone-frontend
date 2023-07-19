@@ -1,0 +1,111 @@
+
+  
+  /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%555 */
+  .slideshow {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .slideshowSlider {
+    white-space: nowrap;
+    transition: ease 1000ms;
+  }
+
+  .slideshowSlider img{
+    width: 100%;
+  }
+  .slide {
+    display: inline-block;
+  
+    height: 700px;
+    width: 100%;
+    border-radius: 40px;
+  }
+  
+  /* Buttons */
+  
+  .slideshowDots {
+    text-align: center;
+  }
+  
+  .slideshowDot {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+  
+    cursor: pointer;
+    margin: 15px 7px 0px;
+  
+    background-color: #c4c4c4;
+  }
+  
+  .slideshowDot.active {
+    background-color: #6a0dad;
+  }
+    /* ////////////////////////// */
+  .vertical-line {
+    width: 1px;
+    height: 70px; /* Adjust the height as needed */
+    background-color:grey;
+    display: inline-block;
+    margin-left: 9%;
+    margin-right:3%;
+  }
+  /* ////////////////////////// */
+  .container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .image {
+    display: block;
+  }
+
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  /* ////////////////////////// */
+  .list-item {
+    line-height: 2.3;
+    font-size:17px;
+    font-weight: 500;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    color: gray;
+  }
+  .list-item:hover{
+    color:"#e2660f"
+
+  }
+  ul{
+    list-style: none;
+    list-style-type: none;
+  }
+
+.sliderClass{
+
+  margin: 0px 20px 0px 10px;
+  width: 97%;
+  height: 570px;
+
+}
+
+
+  @media screen and (max-width:982px){
+    .nav-links{
+      display: none;
+    }
+    .hamburger{
+      display:inline-flex
+    }
+  }
