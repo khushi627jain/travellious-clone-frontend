@@ -23,7 +23,6 @@ export default function PlacesDashboard() {
   let token =localStorage.getItem("token")
 
 useEffect(()=>{
-   console.log(token);
 if(token){
   axios.get("https://travellious-clone.onrender.com/trekking/userPackage",{headers: { Authorization: `Bearer ${token}` }})
     .then(res=>{
@@ -157,7 +156,7 @@ setShow(4513)
     <>
 
   
-        <Button mt="20px" mb="20px" p="20px" bg="#e2660f" onClick={() => setIsModalOpen(true)}>
+        <Button mt="40px" mb="20px" p="20px" bg="#e2660f" onClick={() => setIsModalOpen(true)}>
     Add Packages
   </Button>
      
