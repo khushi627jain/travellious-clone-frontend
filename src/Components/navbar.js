@@ -299,18 +299,18 @@ export function NavbarCode({ nameOfUser }) {
                                 <Box className='content'>
 
                                     <Box className='row'>
-                                        <img src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2020_09/3247646/200227-think-plantation-se-545p.jpg" />
+                                        <img src="https://www.thespruce.com/thmb/2UqazxmwZj4edAq39EphfiDHStk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-165831199-56d751df3df78cfb37da972c.jpg" />
                                     </Box>
 
                                     <Box className='row'>
-                                        <img src="https://assets.editorial.aetnd.com/uploads/2009/10/how-slavery-became-the-economic-engine-of-the-souths-featured-photo.jpg?width=1920&height=960&crop=1920%3A960%2Csmart&quality=75" />
+                                        <img src="https://www.ambius.com/dam/jcr:c377c122-e09a-4d1d-a750-481094c35dde/1200-image-banner-stock-woman-potting-plants-in-greenhouse-605764253.webp" />
                                     </Box>
 
                                     <Box className='row'>
-                                        <img src="https://ichef.bbci.co.uk/images/ic/1008xn/p07836bm.jpg" />
+                                        <img src="https://img.etimg.com/thumb/msid-100649932,width-650,height-488,imgsize-222262,,resizemode-75/gardening_istock.jpg" />
                                     </Box>
                                     <Box className='row'>
-                                        <img src="https://www.worldhistory.org/img/r/p/1000x1200/14642.jpg.webp?v=1683580443" />
+                                        <img src="https://www.thespruce.com/thmb/XoRg5ZDKDhX_XDIu618RYOLHH_s=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/vegetable-gardening-in-small-spaces-1403451-01-aa94b9199ba145079de2417b219c89b4.jpg" />
                                     </Box>
                                 </Box>
                             </Box>
