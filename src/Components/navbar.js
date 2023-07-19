@@ -203,7 +203,7 @@ export function NavbarCode({ nameOfUser }) {
                         {/* 2nd a */}
 
                         <li>
-                            <Link to="/camping" _hover={{ textDecorationColor: "white" }}><Text fontWeight={"500"} color={"#dbdde5"} fontSize={["10px", "15px", "15px", "20px"]}>Tours</Text></Link>
+                            <Link to="/trekking" _hover={{ textDecorationColor: "white" }}><Text fontWeight={"500"} color={"#dbdde5"} fontSize={["10px", "15px", "15px", "20px"]}>Tours</Text></Link>
                             <Box className="mega-box">
                                 <Box className="content">
                                     {/* 1st row */}
