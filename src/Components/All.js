@@ -412,7 +412,7 @@ export function PopularAttraction(){
 </Box>
 {/* <Spacer/> */}
 <Box>
-<Link to="/activities">
+<Link to="/trekking">
 <Button variant='solid'  bg="#e2660f" color="white" _hover={{ color: "#e2660f","bg":"white",border:"2px solid #e2660f"}}>
         Buy now
       </Button>
@@ -685,7 +685,7 @@ gap="40px"  alignSelf="center" justifyContent="center"
 </Box>
 {/* <Spacer/> */}
 <Box>
-<Link to="/activities">
+<Link to="/trekking">
 <Button variant='solid'  bg="#e2660f" color="white" _hover={{ color: "#e2660f","bg":"white",border:"2px solid #e2660f"}}>
         Buy now
       </Button>
@@ -788,7 +788,7 @@ gap="40px"  alignSelf="center" justifyContent="center"
 </Box>
 {/* <Spacer/> */}
 <Box>
-<Link to="/activities">
+<Link to="/trekking">
 <Button variant='solid'  bg="#e2660f" color="white" _hover={{ color: "#e2660f","bg":"white",border:"2px solid #e2660f"}}>
         Buy now
       </Button>
@@ -890,7 +890,7 @@ gap="40px"  alignSelf="center" justifyContent="center"
 </Box>
 {/* <Spacer/> */}
 <Box>
-<Link to="/activities">
+<Link to="/trekking">
 <Button variant='solid'  bg="#e2660f" color="white" _hover={{ color: "#e2660f","bg":"white",border:"2px solid #e2660f"}}>
         Buy now
       </Button>

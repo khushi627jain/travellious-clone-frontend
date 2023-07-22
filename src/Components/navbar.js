@@ -62,7 +62,7 @@ export function NavbarCode({ nameOfUser }) {
             headers: { Authorization: `Bearer ${token}` },
           })
           .then(res=>{
-         console.log(res.data)
+       
             setName(res.data.name);
           })
         }
@@ -105,7 +105,8 @@ export function NavbarCode({ nameOfUser }) {
                     >
                     Signup first, this email dosen't exist
                     </div>
-                  )
+                  ),
+                  status:"warning"
                   })
             }
             else if(res.data=="Wrong credentials"){
@@ -130,7 +131,8 @@ export function NavbarCode({ nameOfUser }) {
                     >
                     Invalid Credentials
                     </div>
-                  )
+                  ),
+                  status:"error"
                   })
             }
             else if(res.data.msg="Successfully login"){
@@ -159,7 +161,8 @@ console.log(res.data.obj.name)
                     >
                    LOGIN SUCCESSFULLY
                     </div>
-                  )
+                  ),
+                  status:"success"
                   })
             
             }})
@@ -227,7 +230,8 @@ console.log(res.data.obj.name)
                 >
                SUCCESSFULLY SIGNUP
                 </div>
-              )
+              ),
+              status:"success"
               })
             
             })

@@ -1,15 +1,15 @@
-import { Box,Text,Image,VStack,Badge, Button, Heading, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, Checkbox, CheckboxGroup, SimpleGrid } from "@chakra-ui/react";
+import { Box,Text,Image,VStack,Badge, Button, Heading, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, Checkbox, CheckboxGroup, SimpleGrid, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function PlacesDashboard() {
   const [data, setData] = useState([]);
-  const[change,setChange]=useState("");
   const[show,setShow]=useState(1);
   const navigate=useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenEdit, setIsModalOpenEdit] = useState(false);
+  const toast=useToast()
   const [formData, setFormData] = useState({
     name: "Water World Ocean Park Hong Kong",
     description: "Welcome, Adventurers, to a secret world! Just minutes from Hong Kong’s urban center, prepare to enter a mystical, hidden civilisation at one with the wonders of water and nature.  We look forward to hosting you in our secret world of water.",
@@ -33,11 +33,35 @@ if(token){
     .catch(err=>console.log(err))
 }
 else{
-  alert("Please login first for acccessing dashboard");
+  
+  // toast({
+        
+  //   duration: 4000,
+  //   isClosable: true,
+  //   position:"top",
+  //   render:()=>(
+  //     <div
+  //     style={{
+  //       backgroundColor: '#e2660f', // New background color
+  //       color: 'white', // New text color
+  //       borderRadius: '10px', // New border radius
+  //       padding: '15px 25px',
+  //       fontStyle:"revert-layer",
+  //       justifyContent:"center",
+  //       textAlign:"center",
+  //       margin:"auto",
+  //       alignItems:"center"
+  //     }}
+  //   >
+  // Please login first for acccessing dashboard
+  //   </div>
+  // ),
+  // status:"error"
+  // })
   navigate("/");
   
 }
-},[show.change])
+},[show])
 
   const handleInputChange = (e) =>
    {
@@ -130,7 +154,31 @@ axios.post("https://travellious-clone.onrender.com/trekking",obj,{ headers: { Au
     obj.rating=4.2;
 
 axios.patch(`https://travellious-clone.onrender.com/trekking/${id}`,obj,{ headers: { Authorization: `Bearer ${token}` }})
-
+.then(res=>
+  toast({
+        
+    duration: 4000,
+    isClosable: true,
+    position:"top",
+    render:()=>(
+      <div
+      style={{
+        backgroundColor: '#e2660f', // New background color
+        color: 'white', // New text color
+        borderRadius: '10px', // New border radius
+        padding: '15px 25px',
+        fontStyle:"revert-layer",
+        justifyContent:"center",
+        textAlign:"center",
+        margin:"auto",
+        alignItems:"center"
+      }}
+    >
+ SUCCESSFULLY EDITED
+    </div>
+  ),
+  status:"success"
+  }))
 
 
     // Reset the form data
@@ -152,6 +200,31 @@ axios.patch(`https://travellious-clone.onrender.com/trekking/${id}`,obj,{ header
 function deleteProduct(id){
 
     axios.delete(`https://travellious-clone.onrender.com/trekking/delete/${id}`,{headers: { Authorization: `Bearer ${token}` }})
+    .then(res=>
+      toast({
+        
+        duration: 4000,
+        isClosable: true,
+        position:"top",
+        render:()=>(
+          <div
+          style={{
+            backgroundColor: '#e2660f', // New background color
+            color: 'white', // New text color
+            borderRadius: '10px', // New border radius
+            padding: '15px 25px',
+            fontStyle:"revert-layer",
+            justifyContent:"center",
+            textAlign:"center",
+            margin:"auto",
+            alignItems:"center"
+          }}
+        >
+      SUCCESSFULLY DELETED
+        </div>
+      ),
+      status:"success"
+      }))
 setShow(prev=>prev+4513)
 }
 
@@ -159,7 +232,7 @@ setShow(prev=>prev+4513)
     <>
 
   
-        <Button mt="40px" mb="20px" p="20px" bg="#e2660f" onClick={() => setIsModalOpen(true)}>
+        <Button mt="40px" mb="20px" p="25px 40px" bg="#e2660f" onClick={() => setIsModalOpen(true)}>
     Add Packages
   </Button>
      
