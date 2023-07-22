@@ -53,9 +53,9 @@ export function NavbarCode({ nameOfUser }) {
 
     useEffect(()=>{
   
-        const token=localStorage.getItem("token")
+        const token=localStorage.getItem("token");
         if(token){
-          axios
+          axios  
           .get("https://travellious-clone.onrender.com/user", {
             headers: { Authorization: `Bearer ${token}` },
           })
