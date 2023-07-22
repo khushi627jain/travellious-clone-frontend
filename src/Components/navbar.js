@@ -51,13 +51,13 @@ export function NavbarCode({ nameOfUser }) {
     const[userName,setUsername]=useState("")
 
 
-useEffect(()=>{
+//  useEffect(()=>{
 
-    let nameOF=localStorage.getItem("name");
+//     let nameOF=localStorage.getItem("name");
    
-    setName(nameOF)
+//     setName(nameOF)
    
-},[name])
+// },[name]) 
 
     const handleLogin = (event) => {
         event.preventDefault();
