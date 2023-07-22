@@ -51,13 +51,20 @@ export function NavbarCode({ nameOfUser }) {
     const[userName,setUsername]=useState("")
 
 
-//  useEffect(()=>{
-
-//     let nameOF=localStorage.getItem("name");
-   
-//     setName(nameOF)
-   
-// },[name]) 
+    useEffect(()=>{
+  
+        const token=localStorage.getItem("token")
+        if(token){
+          axios
+          .get("https://travellious-clone.onrender.com/user", {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+          .then(res=>{
+            setName(res.data.data.name);
+          })
+        }
+       
+      },[name])
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -82,7 +89,7 @@ export function NavbarCode({ nameOfUser }) {
                 setName(res.data.obj.name)
 
                 localStorage.setItem("token",res.data.token);
-                localStorage.setItem("name",res.data.obj.name);
+               
                 // dispatch({ type: "changeName", payload: name })
                 alert("Login Successful")
             
@@ -335,7 +342,7 @@ export function NavbarCode({ nameOfUser }) {
                         {/* 6th a login */}
                         <li>
                             <Link onClick={onOpen} _hover={{ textDecorationColor: "white" }}><Text fontWeight={"500"}
-                                color={nameOfUser == "" ? "#dbdde5" : "#e2660f"}
+                                color={name == ""||null ? "#dbdde5" : "#e2660f"}
                                 fontSize={["10px", "15px", "15px", "20px"]}>{name == null||"" ? "Login" : name}</Text></Link>
                             <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
                                 <DrawerOverlay>
