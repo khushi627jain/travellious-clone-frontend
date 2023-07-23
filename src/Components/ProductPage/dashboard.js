@@ -9,6 +9,8 @@ export default function PlacesDashboard() {
   const navigate=useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenEdit, setIsModalOpenEdit] = useState(false);
+  const [isToastShown, setIsToastShown] = useState(1);
+
   const toast=useToast()
   const [formData, setFormData] = useState({
     name: "Water World Ocean Park Hong Kong",
@@ -34,30 +36,34 @@ if(token){
 }
 else{
   
-  // toast({
-        
-  //   duration: 4000,
-  //   isClosable: true,
-  //   position:"top",
-  //   render:()=>(
-  //     <div
-  //     style={{
-  //       backgroundColor: '#e2660f', // New background color
-  //       color: 'white', // New text color
-  //       borderRadius: '10px', // New border radius
-  //       padding: '15px 25px',
-  //       fontStyle:"revert-layer",
-  //       justifyContent:"center",
-  //       textAlign:"center",
-  //       margin:"auto",
-  //       alignItems:"center"
-  //     }}
-  //   >
-  // Please login first for acccessing dashboard
-  //   </div>
-  // ),
-  // status:"error"
-  // })
+
+  // if (isToastShown===1) {
+  //  setIsToastShown(prev=>prev+10)
+  //  console.log(isToastShown)
+  //   toast({
+  //     duration: 4000,
+  //     isClosable: true,
+  //     position: "top",
+  //     render: () => (
+  //       <div
+  //         style={{
+  //           backgroundColor: "#e2660f",
+  //           color: "white",
+  //           borderRadius: "10px",
+  //           padding: "15px 25px",
+  //           fontStyle: "revert-layer",
+  //           justifyContent: "center",
+  //           textAlign: "center",
+  //           margin: "auto",
+  //           alignItems: "center",
+  //         }}
+  //       >
+  //         Please login first for accessing the dashboard
+  //       </div>
+  //     ),
+  //     status: "error",
+  //   });
+  // }
   navigate("/");
   
 }

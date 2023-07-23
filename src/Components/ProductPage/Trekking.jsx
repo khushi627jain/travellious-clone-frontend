@@ -3,7 +3,8 @@ import { Box, Button, Flex , Table,
  Image, Badge, Text, VStack,
 SimpleGrid,
  
-  Heading,} from "@chakra-ui/react";
+  Heading,
+  Spinner,} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {useDispatch} from "react-redux"
@@ -207,6 +208,26 @@ setData(res.data.data);
 
   <SimpleGrid columns={3} spacing={4}>
 {
+  data.length==0? 
+  <Box
+  top="25%"
+  display="flex"
+  position="relative"
+  justifyContent="center"
+  // alignItems="center"
+  minHeight="100vh"
+  minWidth="100vw" /* Set a width to the container */
+>
+  <Spinner
+    thickness='8px'
+    speed='0.65s'
+    emptyColor='gray.200'
+    color='blue.500'
+    size='xl'
+  />
+</Box>
+
+ : 
   data.map((ele, idx) => {
   return (
     <Box
@@ -218,7 +239,7 @@ setData(res.data.data);
       boxShadow="md"
       p={4}
     >
-      <Image src={ele.imageURL} alt={ele.name} />
+      <Image w="100%" h="300px" src={ele.imageURL} alt={ele.name} />
       <Box mt={4}>
         <Text fontSize="xl" fontWeight="semibold">
           {ele.name}
