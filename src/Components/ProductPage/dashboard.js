@@ -204,7 +204,7 @@ axios.patch(`https://travellious-clone.onrender.com/trekking/${id}`,obj,{ header
 }
 
 function deleteProduct(id){
-
+  setShow(prev=>prev+13)
     axios.delete(`https://travellious-clone.onrender.com/trekking/delete/${id}`,{headers: { Authorization: `Bearer ${token}` }})
     .then(res=>
       toast({
