@@ -103,7 +103,14 @@ else{
     }
     obj.rating=4.2;
 
-axios.post("https://travellious-clone.onrender.com/trekking",obj,{ headers: { Authorization: `Bearer ${token}` }})
+    axios.post("https://travellious-clone.onrender.com/trekking", obj, { headers: { Authorization: `Bearer ${token}` } })
+    .then(res => {
+      // Update the data state with the new product
+      setData(prevData => [...prevData, res.data]);
+      setIsModalOpen(false);
+      setShow(prev => prev + 9);
+    })
+    .catch(err => console.log(err));
 
     // Reset the form data
     setFormData({
@@ -118,7 +125,7 @@ axios.post("https://travellious-clone.onrender.com/trekking",obj,{ headers: { Au
     });
     // Close the modal
     setIsModalOpen(false);
-   setShow(prev=>prev+9)
+  
   };
 
   function editProduct(id) {
@@ -206,7 +213,8 @@ axios.patch(`https://travellious-clone.onrender.com/trekking/${id}`,obj,{ header
 function deleteProduct(id){
   setShow(prev=>prev+13)
     axios.delete(`https://travellious-clone.onrender.com/trekking/delete/${id}`,{headers: { Authorization: `Bearer ${token}` }})
-    .then(res=>
+    .then(res=>{
+      setData(prevData => prevData.filter(product => product._id !== id));
       toast({
         
         duration: 4000,
@@ -230,7 +238,7 @@ function deleteProduct(id){
         </div>
       ),
       status:"success"
-      }))
+      })})
 setShow(prev=>prev+4513)
 }
 
