@@ -1,15 +1,12 @@
 
 import {
-    Box, Button, Flex, Text, Image, Spacer,
+    Box, Button, Flex, Text, Spacer,
     Center,
     Heading,
-
-
     FormControl,
     FormLabel,
     Input,
     Stack,
-
     Drawer,
     DrawerOverlay,
     DrawerContent,
@@ -21,7 +18,6 @@ import {
     ModalOverlay,
     ModalContent,
     ModalHeader,
-    ModalFooter,
     ModalBody,
     ModalCloseButton,
     useToast,
@@ -49,125 +45,126 @@ export function NavbarCode({ nameOfUser }) {
     const [isOpenn, setIsOpen] = useState(false);
     const [phoneNumber, setPhoneNumber] = useState('');
     const [name, setName] = useState("");
-  
-    const toast = useToast() 
-    const[SignUpname,setSignUpName]=useState("")
 
-    useEffect(()=>{
-  
-        const token=localStorage.getItem("token");
-        if(token){
-          axios  
-          .get("https://travellious-clone.onrender.com/user", {
-            headers: { Authorization: `Bearer ${token}` },
-          })
-          .then(res=>{
-       
-            setName(res.data.name);
-          })
+    const toast = useToast()
+    const [SignUpname, setSignUpName] = useState("")
+
+    useEffect(() => {
+
+        const token = localStorage.getItem("token");
+        if (token) {
+            axios
+                .get("https://travellious-clone.onrender.com/user", {
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+                .then(res => {
+
+                    setName(res.data.name);
+                })
         }
-    
-      },[name])
+
+    }, [name])
 
     const handleLogin = (event) => {
         event.preventDefault();
-       
+
         const formData = {
             email: email,
             password: password,
         };
         if (email === "" || password === "") {
-            alert("Please fill all fields");return;
-          }
-          
-        axios.post("https://travellious-clone.onrender.com/login",formData)
-        .then(res=>{
-            if(res.data=="Email dosen't exist , Please sign up first"){
-               
-                toast({
-        
-                    duration: 4000,
-                    isClosable: true,
-                    position:"top",
-                    render:()=>(
-                      <div
-                      style={{
-                        backgroundColor: '#e2660f', // New background color
-                        color: 'white', // New text color
-                        borderRadius: '10px', // New border radius
-                        padding: '15px 25px',
-                        fontStyle:"revert-layer",
-                        justifyContent:"center",
-                        textAlign:"center",
-                        margin:"auto",
-                        alignItems:"center"
-                      }}
-                    >
-                    Signup first, this email dosen't exist
-                    </div>
-                  ),
-                  status:"warning"
-                  })
-            }
-            else if(res.data=="Wrong credentials"){
-                toast({
-        
-                    duration: 4000,
-                    isClosable: true,
-                    position:"top",
-                    render:()=>(
-                      <div
-                      style={{
-                        backgroundColor: '#e2660f', // New background color
-                        color: 'white', // New text color
-                        borderRadius: '10px', // New border radius
-                        padding: '15px 25px',
-                        fontStyle:"revert-layer",
-                        justifyContent:"center",
-                        textAlign:"center",
-                        margin:"auto",
-                        alignItems:"center"
-                      }}
-                    >
-                    Invalid Credentials
-                    </div>
-                  ),
-                  status:"error"
-                  })
-            }
-            else if(res.data.msg="Successfully login"){
-                setName(res.data.obj.name)
-console.log(res.data.obj.name)
-                localStorage.setItem("token",res.data.token);
-               
-                toast({
-        
-                    duration: 4000,
-                    isClosable: true,
-                    position:"top",
-                    render:()=>(
-                      <div
-                      style={{
-                        backgroundColor: '#e2660f', // New background color
-                        color: 'white', // New text color
-                        borderRadius: '10px', // New border radius
-                        padding: '15px 25px',
-                        fontStyle:"revert-layer",
-                        justifyContent:"center",
-                        textAlign:"center",
-                        margin:"auto",
-                        alignItems:"center"
-                      }}
-                    >
-                   LOGIN SUCCESSFULLY
-                    </div>
-                  ),
-                  status:"success"
-                  })
-            
-            }})
-            setEmail("");setPassword("");setPhoneNumber("");
-            
+            alert("Please fill all fields"); return;
+        }
+
+        axios.post("https://travellious-clone.onrender.com/login", formData)
+            .then(res => {
+                if (res.data == "Email dosen't exist , Please sign up first") {
+
+                    toast({
+
+                        duration: 4000,
+                        isClosable: true,
+                        position: "top",
+                        render: () => (
+                            <div
+                                style={{
+                                    backgroundColor: '#e2660f', // New background color
+                                    color: 'white', // New text color
+                                    borderRadius: '10px', // New border radius
+                                    padding: '15px 25px',
+                                    fontStyle: "revert-layer",
+                                    justifyContent: "center",
+                                    textAlign: "center",
+                                    margin: "auto",
+                                    alignItems: "center"
+                                }}
+                            >
+                                Signup first, this email dosen't exist
+                            </div>
+                        ),
+                        status: "warning"
+                    })
+                }
+                else if (res.data == "Wrong credentials") {
+                    toast({
+
+                        duration: 4000,
+                        isClosable: true,
+                        position: "top",
+                        render: () => (
+                            <div
+                                style={{
+                                    backgroundColor: '#e2660f', // New background color
+                                    color: 'white', // New text color
+                                    borderRadius: '10px', // New border radius
+                                    padding: '15px 25px',
+                                    fontStyle: "revert-layer",
+                                    justifyContent: "center",
+                                    textAlign: "center",
+                                    margin: "auto",
+                                    alignItems: "center"
+                                }}
+                            >
+                                Invalid Credentials
+                            </div>
+                        ),
+                        status: "error"
+                    })
+                }
+                else if (res.data.msg = "Successfully login") {
+                    setName(res.data.obj.name)
+                    console.log(res.data.obj.name)
+                    localStorage.setItem("token", res.data.token);
+
+                    toast({
+
+                        duration: 4000,
+                        isClosable: true,
+                        position: "top",
+                        render: () => (
+                            <div
+                                style={{
+                                    backgroundColor: '#e2660f', // New background color
+                                    color: 'white', // New text color
+                                    borderRadius: '10px', // New border radius
+                                    padding: '15px 25px',
+                                    fontStyle: "revert-layer",
+                                    justifyContent: "center",
+                                    textAlign: "center",
+                                    margin: "auto",
+                                    alignItems: "center"
+                                }}
+                            >
+                                LOGIN SUCCESSFULLY
+                            </div>
+                        ),
+                        status: "success"
+                    })
+
+                }
+            })
+        setEmail(""); setPassword(""); setPhoneNumber("");
+
     };
 
     const handleSubmit = (event) => {
@@ -178,75 +175,75 @@ console.log(res.data.obj.name)
             password: password,
             phoneNumber: phoneNumber,
         };
-        if (email === "" || password === ""||SignUpname===""||phoneNumber==="") {
-            alert("Please fill all fields");return;
-          }
-        axios.post("https://travellious-clone.onrender.com/signup",formData)
-        .then(res=>{
-            if(res.data=="Email already exists"){
-                toast({
-        
-                    duration: 4000,
-                    isClosable: true,
-                    position:"top",
-                    render:()=>(
-                      <div
-                      style={{
-                        backgroundColor: '#e2660f', // New background color
-                        color: 'white', // New text color
-                        borderRadius: '10px', // New border radius
-                        padding: '15px 25px',
-                        fontStyle:"revert-layer",
-                        justifyContent:"center",
-                        textAlign:"center",
-                        margin:"auto",
-                        alignItems:"center"
-                      }}
-                    >
-                    Email already exists
-                    </div>
-                  )
-                  })
-            }
-            else 
-            toast({
-        
-                duration: 4000,
-                isClosable: true,
-                position:"top",
-                render:()=>(
-                  <div
-                  style={{
-                    backgroundColor: '#e2660f', // New background color
-                    color: 'white', // New text color
-                    borderRadius: '10px', // New border radius
-                    padding: '15px 25px',
-                    fontStyle:"revert-layer",
-                    justifyContent:"center",
-                    textAlign:"center",
-                    margin:"auto",
-                    alignItems:"center"
-                  }}
-                >
-               SUCCESSFULLY SIGNUP
-                </div>
-              ),
-              status:"success"
-              })
-            
+        if (email === "" || password === "" || SignUpname === "" || phoneNumber === "") {
+            alert("Please fill all fields"); return;
+        }
+        axios.post("https://travellious-clone.onrender.com/signup", formData)
+            .then(res => {
+                if (res.data == "Email already exists") {
+                    toast({
+
+                        duration: 4000,
+                        isClosable: true,
+                        position: "top",
+                        render: () => (
+                            <div
+                                style={{
+                                    backgroundColor: '#e2660f', // New background color
+                                    color: 'white', // New text color
+                                    borderRadius: '10px', // New border radius
+                                    padding: '15px 25px',
+                                    fontStyle: "revert-layer",
+                                    justifyContent: "center",
+                                    textAlign: "center",
+                                    margin: "auto",
+                                    alignItems: "center"
+                                }}
+                            >
+                                Email already exists
+                            </div>
+                        )
+                    })
+                }
+                else
+                    toast({
+
+                        duration: 4000,
+                        isClosable: true,
+                        position: "top",
+                        render: () => (
+                            <div
+                                style={{
+                                    backgroundColor: '#e2660f', // New background color
+                                    color: 'white', // New text color
+                                    borderRadius: '10px', // New border radius
+                                    padding: '15px 25px',
+                                    fontStyle: "revert-layer",
+                                    justifyContent: "center",
+                                    textAlign: "center",
+                                    margin: "auto",
+                                    alignItems: "center"
+                                }}
+                            >
+                                SUCCESSFULLY SIGNUP
+                            </div>
+                        ),
+                        status: "success"
+                    })
+
             })
-            .catch(err=>console.log(err))
-            setEmail("");setPassword("");setPhoneNumber("");
-             setSignUpName("");
+            .catch(err => console.log(err))
+        setEmail(""); setPassword(""); setPhoneNumber("");
+        setSignUpName("");
     };
 
-const signupChange=()=>{
-    if(name!=""){
-        localStorage.removeItem("token"); setName("")
-       
+    const signupChange = () => {
+        if (name != "") {
+            localStorage.removeItem("token"); setName("")
+
+        }
+        else setIsOpen(true)
     }
-   else setIsOpen(true)
-}
 
     return (
         <Flex bg="#122722" as="nav" align="center" justify="space-between" pr="60px" pl="60px" pb="30px">
@@ -466,10 +463,10 @@ const signupChange=()=>{
                         {/* 6th a login */}
                         <li>
                             <Link onClick={onOpen} _hover={{ textDecorationColor: "white" }}>
-                            <Text fontWeight={"500"}
-                                color={name == "" ? "#dbdde5" : "#e2660f"}
-                                fontSize={["10px", "15px", "15px", "20px"]}>
-                                {name == "" ? "Login" : name}
+                                <Text fontWeight={"500"}
+                                    color={name == "" ? "#dbdde5" : "#e2660f"}
+                                    fontSize={["10px", "15px", "15px", "20px"]}>
+                                    {name == "" ? "Login" : name}
                                 </Text></Link>
                             <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
                                 <DrawerOverlay>
@@ -512,15 +509,15 @@ const signupChange=()=>{
                         {/* 7th a signup */}
                         <li>
                             <Link onClick={
-                             
-                            signupChange
-                             }
-                             >
-                            <Button mt="-5px"
-                             _hover={{ bg: "white", color: "#e2660f", border: "2px solid #e2660f" }} 
-                             bg="#e2660f" color="white">
-                             <Text>{name==""?"Register":"LogOut" }</Text>
-                             </Button></Link>
+
+                                signupChange
+                            }
+                            >
+                                <Button mt="-5px"
+                                    _hover={{ bg: "white", color: "#e2660f", border: "2px solid #e2660f" }}
+                                    bg="#e2660f" color="white">
+                                    <Text>{name == "" ? "Register" : "LogOut"}</Text>
+                                </Button></Link>
                             <Modal isOpen={isOpenn} onClose={() => setIsOpen(false)}>
                                 <ModalOverlay />
                                 <ModalContent>
