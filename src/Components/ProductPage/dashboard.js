@@ -336,7 +336,7 @@ setShow(prev=>prev+4513)
               <strong>Accommodation:</strong> {ele.accommodation}
             </Text>
             <Text>
-              <strong>Activities:</strong> {ele.activities.join(", ")}
+              <strong>Activities:</strong> {ele.activities?.join(", ")}
             </Text>
             <Text>
               <strong>Rating:</strong> {ele.rating}
